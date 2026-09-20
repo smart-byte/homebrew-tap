@@ -1,0 +1,32 @@
+name: Test installation
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  install:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-24.04, ubuntu-24.04-arm, macos-15, macos-15-intel]
+    steps:
+      - uses: Homebrew/actions/setup-homebrew@848c272c7bfe984a197bd4d16383f4c106ec61e6
+        with:
+          stable: true
+      - name: Check formula style
+        if: matrix.os == 'macos-15'
+        run: brew style --formula smart-byte/tap/leani
+      - name: Audit published formula
+        if: matrix.os == 'macos-15'
+        run: brew audit --strict --online smart-byte/tap/leani
+      - name: Install released archive
+        run: brew install --build-from-source smart-byte/tap/leani
+      - name: Test installed binary
+        run: brew test smart-byte/tap/leani
