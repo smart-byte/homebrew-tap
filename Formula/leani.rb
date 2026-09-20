@@ -1,7 +1,6 @@
 class Leani < Formula
   desc "Lean, state-minimized Ethereum indexing node"
   homepage "https://github.com/smart-byte/leani"
-  version "0.1.0-rc.1"
   license "MIT"
 
   on_macos do
