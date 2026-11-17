@@ -22,11 +22,15 @@ jobs:
           stable: true
       - name: Check formula style
         if: matrix.os == 'macos-15'
-        run: brew style --formula smart-byte/tap/leani
-      - name: Audit published formula
+        run: brew style --formula smart-byte/tap/leani smart-byte/tap/leani-rc
+      - name: Audit published formulae
         if: matrix.os == 'macos-15'
-        run: brew audit --strict --online smart-byte/tap/leani
-      - name: Install released archive
-        run: brew install --build-from-source smart-byte/tap/leani
-      - name: Test installed binary
-        run: brew test smart-byte/tap/leani
+        run: brew audit --strict --online smart-byte/tap/leani smart-byte/tap/leani-rc
+      # Both formulae install `leani`, so each leaves before the next installs.
+      - name: Install and test each formula
+        run: |
+          for formula in leani leani-rc; do
+            brew install --build-from-source "smart-byte/tap/$formula"
+            brew test "smart-byte/tap/$formula"
+            brew uninstall "smart-byte/tap/$formula"
+          done

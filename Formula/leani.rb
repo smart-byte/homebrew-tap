@@ -23,6 +23,8 @@ class Leani < Formula
     end
   end
 
+  conflicts_with "leani-rc", because: "both install a `leani` binary"
+
   def install
     bin.install "leani"
     pkgshare.install "LICENSE", "THIRD_PARTY_LICENSES.txt"
