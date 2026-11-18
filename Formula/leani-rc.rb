@@ -5,21 +5,21 @@ class LeaniRc < Formula
 
   on_macos do
     if Hardware::CPU.arm?
-      url "https://github.com/smart-byte/leani/releases/download/v0.2.0-rc.2/leani-v0.2.0-rc.2-aarch64-apple-darwin.tar.gz"
-      sha256 "361ba607cf5baf7d7e2d026559b347a72af8511af62ae1751f43a2d94846ae61"
+      url "https://github.com/smart-byte/leani/releases/download/v0.2.0-rc.3/leani-v0.2.0-rc.3-aarch64-apple-darwin.tar.gz"
+      sha256 "6e53e50b45fb21e8aba87524d2486bcbc6ab622bc2d0cde0286085d9c625a850"
     else
-      url "https://github.com/smart-byte/leani/releases/download/v0.2.0-rc.2/leani-v0.2.0-rc.2-x86_64-apple-darwin.tar.gz"
-      sha256 "b7e680ad05017ea2229d87bd71b3b1e7f6421420e05046dc3d8373f6fe54ef05"
+      url "https://github.com/smart-byte/leani/releases/download/v0.2.0-rc.3/leani-v0.2.0-rc.3-x86_64-apple-darwin.tar.gz"
+      sha256 "4a0042d1e477a66189188b59940e69aece2d28c290e5a15614076f793eb13d6a"
     end
   end
 
   on_linux do
     if Hardware::CPU.arm?
-      url "https://github.com/smart-byte/leani/releases/download/v0.2.0-rc.2/leani-v0.2.0-rc.2-aarch64-unknown-linux-gnu.tar.gz"
-      sha256 "33e2928f35caa6591a6913df5ab2aaf29f1e943c21d64f877b85d2b565b2ee3b"
+      url "https://github.com/smart-byte/leani/releases/download/v0.2.0-rc.3/leani-v0.2.0-rc.3-aarch64-unknown-linux-gnu.tar.gz"
+      sha256 "bc83a0343fb8e328072bdaceb13d6619a69906fddcafebad85847e56a6b8f5ff"
     else
-      url "https://github.com/smart-byte/leani/releases/download/v0.2.0-rc.2/leani-v0.2.0-rc.2-x86_64-unknown-linux-gnu.tar.gz"
-      sha256 "63308644eca299da7b6b136f1c06a11ab825ca364f90dcc5d9bf7c1e0b8a4fc1"
+      url "https://github.com/smart-byte/leani/releases/download/v0.2.0-rc.3/leani-v0.2.0-rc.3-x86_64-unknown-linux-gnu.tar.gz"
+      sha256 "52c0588905de4f5989e84eb1ee9a196ad547a684f1e4405cc7d26dd621b0c693"
     end
   end
 
